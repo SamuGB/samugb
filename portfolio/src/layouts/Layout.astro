@@ -147,15 +147,18 @@ const { description, title } = Astro.props
       const scrollPosition = window.scrollY;
 
       sidebarLinks.forEach(link => {
-        const targetId = link.getAttribute("href").substring(1);
-        const targetElement = document.getElementById(targetId);
+        const href = link.getAttribute("href");
 
-        // Ajusta el punto de activación restando 50px
-        if (targetElement.offsetTop - 50 <= scrollPosition && targetElement.offsetTop + targetElement.offsetHeight > scrollPosition) {
-          sidebarLinks.forEach(otherLink => otherLink.classList.remove("active"));
-          link.classList.add("active");
-        } else {
-          link.classList.remove("active");
+        if (href) {
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement && targetElement.offsetTop - 50 <= scrollPosition && targetElement.offsetTop + targetElement.offsetHeight > scrollPosition) {
+            sidebarLinks.forEach(otherLink => otherLink.classList.remove("active"));
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
         }
       });
     });
@@ -163,8 +166,17 @@ const { description, title } = Astro.props
     // Agrega un manejador de eventos para cambiar la clase activa al hacer clic en los enlaces
     sidebarLinks.forEach(link => {
       link.addEventListener("click", function() {
-        sidebarLinks.forEach(otherLink => otherLink.classList.remove("active"));
-        link.classList.add("active");
+        const href = link.getAttribute("href");
+
+        if (href) {
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            sidebarLinks.forEach(otherLink => otherLink.classList.remove("active"));
+            link.classList.add("active");
+          }
+        }
       });
     });
   });
