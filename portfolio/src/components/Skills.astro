@@ -1,0 +1,68 @@
+---
+const TAGS = [
+  {
+    name: ".NET",
+    class: "progress-bar w-[90%] bg-[#6441a5] after:bg-[#6441a5]",
+    progress: "90%",
+    color: "#6441a5"
+  },
+  {
+    name: "HTML + CSS + JS",
+    class: "progress-bar w-[80%] bg-[#f9bf3f] after:bg-[#f9bf3f]",
+    progress: "80%",
+    color: "#f9bf3f"
+  },
+  {
+    name: "SEO",
+    class: "progress-bar w-[75%] bg-[#FFA500] after:bg-[#FFA500]",
+    progress: "75%",
+    color: "#FFA500"
+  },
+  {
+    name: "VUE",
+    class: "progress-bar w-[70%] bg-[#2fa499] after:bg-[#2fa499]",
+    progress: "70%",
+    color: "#2fa499"
+  },
+  {
+    name: "Python",
+    class: "progress-bar w-[70%] bg-[#4B8BBE] after:bg-[#4B8BBE]",
+    progress: "70%",
+    color: "#4B8BBE"
+  },
+  {
+    name: "REACT",
+    class: "progress-bar w-[60%] bg-[#ADD8E6] after:bg-[#ADD8E6]",
+    progress: "60%",
+    color: "#ADD8E6"
+  },
+  {
+    name: "GIT",
+    class: "progress-bar w-[80%] bg-[#FF0000] after:bg-[#FF0000]",
+    progress: "80%",
+    color: "#FF0000"
+  },
+  {
+    name: "NEXT",
+    class: "progress-bar w-[50%] bg-[#000] after:bg-[#000]",
+    progress: "50%",
+    color: "#000"
+  },
+]
+---
+
+<p class="text-lg mb-4 text-pretty">Con un enfoque más de especialización en Backend mi pasión por este mundo 
+  y su constante evolución me ha llevado a aprender diferentes tecnologías diferentes tanto laboral como personalmente.
+</p>
+<div class="grid grid-cols-2 gap-y-2 gap-x-8">
+{
+  TAGS.map((tag) => (
+    <div>
+      <h3>{tag.name}</h3>
+      <div class="progress-container">
+        <div class={tag.class}><span style={{color: tag.color}}>{tag.progress}</span></div>
+      </div>
+    </div>
+  ))
+}
+</div>
