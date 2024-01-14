@@ -9,6 +9,8 @@ import Experience from "../components/Experience.astro"
 import Skills from "../components/Skills.astro"
 import Briefcase from "../components/icons/Briefcase.astro"
 import Code from "../components/icons/Code.astro"
+import User from "../components/icons/User.astro"
+import Contact from "../components/Contact.astro"
 ---
 
 <Layout
@@ -60,7 +62,7 @@ import Code from "../components/icons/Code.astro"
           samuelgairin@g4b.cat
         </SocialPill>
       </nav>
-      <a class={`
+      <a href="/CV_Samuel_Gairin.pdf" target="_blank" class={`
           bg-[#f2f3f7]
           border dark:border-white/10 border-gray-400 rounded-full
           gap-x-2
@@ -96,6 +98,16 @@ import Code from "../components/icons/Code.astro"
          Mis Habilidades
       </h2>
       <Skills />
+    </SectionContainer>
+
+    <SectionContainer id="contacto">
+      <h2
+        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
+      >
+      <User class="size-7" />
+         Contacto
+      </h2>
+      <Contact />
     </SectionContainer>
   </main>
 </Layout>

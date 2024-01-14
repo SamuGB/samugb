@@ -1,0 +1,29 @@
+---
+import ExternalLink from "../components/icons/ExternalLink.astro"
+---
+<div>
+    <p class="w-full">
+        Contacta conmigo envíandome un email rellenando los datos a continuación o vía
+        <a href="https://linkedin.com/in/samuel-gairin-boldova-964137189" class="inline-flex text-[#2c98f0]" target="_blank">
+            Linkedin<ExternalLink class="size-4 ml-1" />
+        </a>
+    </p>
+    <form action="" class="w-[500px] mt-6">
+	
+        <div class="mb-4">
+            <input type="text" class="form-control" placeholder="Nombre">
+        </div>
+        <div class="mb-4">
+            <input type="text" class="form-control" placeholder="Email">
+        </div>
+        <div class="mb-4">
+            <input type="text" class="form-control" placeholder="Asunto">
+        </div>
+        <div class="mb-4">
+            <textarea name="" id="message" cols="30" rows="7" class="form-control" placeholder="Mensaje"></textarea>
+        </div>
+        <div class="mb-4">
+            <input type="submit" class="btn-send-message" value="Enviar Mensaje">
+        </div>
+    </form>
+</div>
