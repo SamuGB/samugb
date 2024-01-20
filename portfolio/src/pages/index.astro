@@ -14,10 +14,10 @@ import Contact from "../components/Contact.astro"
 ---
 
 <Layout
-  title="Porfolio de Samu - Desarrollador y Programador Web con 6 años de experiencia"
-  description="Contrata a Samu para crear tu aplicación web o móvil. Desarrollador Web y Emprendedor. Especializado en crear aplicaciones únicas."
+  title="Samuel Gairin Boldova - SamuGB"
+  description="Contrata a Samu para crear tu aplicación web o móvil. Desarrollador y Programador Fullstack con 6 años de experiencia. Especializado en backend."
 >
-  <main class="w-[calc(100%-300px)] float-right pl-[45px]">
+  <main class="w-full px-6 md:w-[calc(100%-225px)] xl:w-[calc(100%-300px)] md:float-right md:px-[45px]">
     <SectionContainer id="sobre-mi">
       
       <h2
@@ -27,7 +27,6 @@ import Contact from "../components/Contact.astro"
         <a
           href="https://linkedin.com/in/samuel-gairin-boldova-964137189"
           target="_blank"
-          rel="noopener"
           class="flex justify-center items-center"
         >
         </a>
@@ -48,39 +47,46 @@ import Contact from "../components/Contact.astro"
         >
       </p>
 
-      <nav class="flex gap-4 mt-8 flex-wrap">
+      <nav class="flex gap-4 mt-6 md:mt-8 flex-wrap justify-center md:justify-start">
         <SocialPill href="https://linkedin.com/in/samuel-gairin-boldova-964137189">
-          <LinkedInIcon class="size-4 md:size-6" />
-           LinkedIn
+          <LinkedInIcon class="size-6" />
+           <span class="hidden md:block">LinkedIn</span>
         </SocialPill>
         <SocialPill href="https://github.com/SamuGB">
-          <GitHubIcon class="size-4 md:size-6" />
-           GitHub
+          <GitHubIcon class="size-6" />
+          <span class="hidden md:block">GitHub</span>
         </SocialPill>
         <SocialPill href="mailto:samuelgairin@g4b.cat">
-          <MailIcon class="size-4 md:size-6" />
-          samuelgairin@g4b.cat
+          <MailIcon class="size-6" />
+          <span class="hidden md:block">samuelgairin@g4b.cat</span>
         </SocialPill>
       </nav>
       <a href="/CV_Samuel_Gairin.pdf" target="_blank" class={`
-          bg-[#f2f3f7]
+          bg-white
+          dark:bg-[#44a4f2]
+          md:bg-[#f2f3f7]
+          md:dark:bg-[#2c98f0]
           border dark:border-white/10 border-gray-400 rounded-full
           gap-x-2
-          w-40
+          w-24
+          md:w-40
           text-center mt-10
           py-1 px-2 md:py-2 md:px-4
           text-xs md:text-base
           transition
           hover:scale-110
           cursor-pointer
-          fixed
-          right-20
-          top-10
+          absolute
+          xl:fixed
+          right-[calc(50%-48px)]
+          top-[200px]
+          md:right-20
+          md:top-10
           font-bold
         `}>VER CV</a>
     </SectionContainer>
 
-    <SectionContainer id="experiencia">
+    <SectionContainer id="experiencia" class="border-t-2">
       <h2
         class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
       >
@@ -90,7 +96,7 @@ import Contact from "../components/Contact.astro"
       <Experience />
     </SectionContainer>
 
-    <SectionContainer id="proyectos">
+    <SectionContainer id="proyectos" class="border-t-2">
       <h2
         class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
       >
@@ -100,7 +106,7 @@ import Contact from "../components/Contact.astro"
       <Skills />
     </SectionContainer>
 
-    <SectionContainer id="contacto">
+    <SectionContainer id="contacto" class="border-t-2">
       <h2
         class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
       >

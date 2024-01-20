@@ -36,6 +36,10 @@ const { description, title } = Astro.props
     color-scheme: light dark;
   }
 
+  * {
+    box-sizing: border-box;
+    min-width: 0;
+  }
   html {
     font-family: "Onest Variable", system-ui, sans-serif;
     scroll-behavior: smooth;
@@ -75,14 +79,20 @@ const { description, title } = Astro.props
   body {
     background: #FFF; /* Fondo claro */
     color: #333; /* Texto oscuro */
-    min-height: 100vh;
+    min-height: 100dvh;
     overscroll-behavior: none;
     display: flex;
     position: relative;
   }
+  .h1, .h2, .h3, .h4 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
   .content {
-    max-width: 1170px;
-    margin: 0 auto;
+    max-width: 100%;
+    min-width: 100%;
   }
 
   .progress-container {
@@ -158,10 +168,9 @@ const { description, title } = Astro.props
     touch-action: manipulation;
     cursor: pointer;
     background-image: none;
-    border: 2px solid #44a4f2;
+    border: 2px solid #2c98f0;
     white-space: nowrap;
     font-size: 14px;
-    line-height: 1.42857;
     border-radius: 2px;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -180,6 +189,14 @@ const { description, title } = Astro.props
     background: #44a4f2
   }
 
+  @media (min-width: 768px) { 
+    .content {
+      max-width: 1170px;
+      min-width: unset;
+      margin: 0 auto;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -188,49 +205,43 @@ const { description, title } = Astro.props
 
   @media (prefers-color-scheme: dark) {
     body {
+      background: #0F0F0F;
       color: #f0f0f0;
     }
   }
 </style>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const sidebarLinks = document.querySelectorAll('.sidebar a');
+  // Obtén todos los enlaces del sidebar
+  const sidebarLinks = document.querySelectorAll('.sidebar a');
 
-    window.addEventListener("scroll", function() {
-      const scrollPosition = window.scrollY;
+  function highlightActiveLink() {
+    const windowHeight = window.innerHeight;
+    const middleScreen = windowHeight / 2;
+    const scrollPosition = window.scrollY + middleScreen;
 
-      sidebarLinks.forEach(link => {
-        const href = link.getAttribute("href");
-
-        if (href) {
-          const targetId = href.substring(1);
-          const targetElement = document.getElementById(targetId);
-
-          if (targetElement && targetElement.offsetTop - 50 <= scrollPosition && targetElement.offsetTop + targetElement.offsetHeight > scrollPosition) {
-            sidebarLinks.forEach(otherLink => otherLink.classList.remove("active"));
-            link.classList.add("active");
-          } else {
-            link.classList.remove("active");
-          }
-        }
-      });
-    });
-
-    // Agrega un manejador de eventos para cambiar la clase activa al hacer clic en los enlaces
     sidebarLinks.forEach(link => {
-      link.addEventListener("click", function() {
-        const href = link.getAttribute("href");
+      const href = link.getAttribute("href");
 
-        if (href) {
-          const targetId = href.substring(1);
-          const targetElement = document.getElementById(targetId);
+      if (href) {
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
 
-          if (targetElement) {
-            sidebarLinks.forEach(otherLink => otherLink.classList.remove("active"));
-            link.classList.add("active");
-          }
+        if (targetElement &&
+          targetElement.offsetTop <= scrollPosition &&
+          targetElement.offsetTop + targetElement.offsetHeight > scrollPosition
+        ) {
+          sidebarLinks.forEach(otherLink => otherLink.classList.remove("active"));
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
         }
-      });
+      }
+      else {
+        link.classList.remove("active");
+      }
     });
-  });
+  }
+
+  window.addEventListener("scroll", highlightActiveLink);
+  document.addEventListener("DOMContentLoaded", highlightActiveLink);
 </script>

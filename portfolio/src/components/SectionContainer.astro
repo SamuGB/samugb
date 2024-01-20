@@ -5,7 +5,7 @@ const { class: className, id } = Astro.props
 <section
   id={id}
   data-section={id}
-  class={`section w-full mx-auto h-screen flex flex-col justify-center`}
+  class={`section w-full py-8 md:mx-auto md:h-screen md:flex md:flex-col md:justify-center ` + className}
 >
   <slot />
 </section>

@@ -3,24 +3,24 @@ import ExternalLink from "../components/icons/ExternalLink.astro"
 ---
 <div>
     <p class="w-full">
-        Contacta conmigo envíandome un email rellenando los datos a continuación o vía
+        Si tienes alguna oferta o estas interesado en algun tema relacionado con el mundo de la programación puedes rellenar tus datos a continuación para enviarme un email o puedes hacerlo vía
         <a href="https://linkedin.com/in/samuel-gairin-boldova-964137189" class="inline-flex text-[#2c98f0]" target="_blank">
             Linkedin<ExternalLink class="size-4 ml-1" />
         </a>
     </p>
-    <form action="" class="w-[500px] mt-6">
+    <form action="" class="md:w-[500px] mt-6">
 	
         <div class="mb-4">
-            <input type="text" class="form-control" placeholder="Nombre">
+            <input type="text" class="form-control" placeholder="Nombre" required>
         </div>
         <div class="mb-4">
-            <input type="text" class="form-control" placeholder="Email">
+            <input type="email" class="form-control" placeholder="Email" required>
         </div>
         <div class="mb-4">
-            <input type="text" class="form-control" placeholder="Asunto">
+            <input type="text" class="form-control" placeholder="Asunto" required>
         </div>
         <div class="mb-4">
-            <textarea name="" id="message" cols="30" rows="7" class="form-control" placeholder="Mensaje"></textarea>
+            <textarea name="" id="message" cols="30" rows="7" class="form-control" placeholder="Mensaje"required></textarea>
         </div>
         <div class="mb-4">
             <input type="submit" class="btn-send-message" value="Enviar Mensaje">
